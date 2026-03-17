@@ -1,9 +1,11 @@
 <script setup>
-import BlogList from './router/blog/BlogList.vue';
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <BlogList />
+  <div class="app-container">
+ <RouterView />
+  </div>
 </template>
 
 <style scoped></style>
