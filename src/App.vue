@@ -1,5 +1,9 @@
-<script setup></script>
+<script setup>
+import BlogList from './router/blog/BlogList.vue';
+</script>
 
-<template></template>
+<template>
+  <BlogList />
+</template>
 
 <style scoped></style>
