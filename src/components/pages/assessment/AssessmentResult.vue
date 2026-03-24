@@ -319,9 +319,7 @@ const content = varaints[props.result];
         คุยกับผู้เชี่ยวชาญ
       </Button>
       <Button class="bg-black">อ่านบทความแนะนำ</Button>
-      <Button class="bg-white border border-[#E7E5E4] text-[#57534D]"
-        >กลับหน้าหลัก</Button
-      >
+      <Button class="bg-white border border-[#E7E5E4] text-black">กลับหน้าหลัก</Button>
     </div>
   </div>
 </template>

@@ -33,8 +33,38 @@ const handleChoiceSelected = (
 };
 
 const next = () => {
-  if (questionIndex.value >= questions.length - 1) return;
+  if (canEvaluate.value) {
+    evaluation();
+    return;
+  }
+
+  function getFirstUnSelectedQuestionIndex(startIdx = 0) {
+    const index = questions.findIndex((q, idx) => {
+      return idx >= startIdx && !answers.value.has(q.id);
+    });
+    return index;
+  }
+
+  if (questionIndex.value >= questions.length - 1) {
+    const firstUnanswered = getFirstUnSelectedQuestionIndex(0);
+
+    if (firstUnanswered !== -1) {
+      questionIndex.value = firstUnanswered;
+      goTo(firstUnanswered);
+      return;
+    }
+    
+    return;
+  }
+
   questionIndex.value++;
+
+  const nextUnanswered = getFirstUnSelectedQuestionIndex();
+
+  if (nextUnanswered === -1) {
+    questionIndex.value = nextUnanswered;
+  }
+
   goTo(questionIndex.value);
 };
 
@@ -87,7 +117,7 @@ const canEvaluate = computed(
     </p>
     <div class="flex flex-col space-y-3">
       <label
-        class="flex items-center py-4 px-6 border border-[#E7E5E4] rounded-2xl font-semibold cursor-pointer"
+        class="flex items-center py-4 px-6 border border-[#E7E5E4] rounded-2xl font-semibold cursor-pointer has-checked:border-emerald-500 has-checked:bg-emerald-500/20"
         v-for="choice in currentQuestion.choices"
         :key="`${currentQuestion.id}-${choice.id}`"
       >
@@ -102,7 +132,7 @@ const canEvaluate = computed(
           {{ choice.label }}
         </span>
         <span
-          class="ml-auto mr-0 flex items-center justify-center size-5 rounded-full border border-[#D6D3D1] p-1 relative before:content-[''] before:size-full before:bg-slate-700 before:rounded-full before:hidden peer-checked:before:block"
+          class="ml-auto mr-0 flex items-center justify-center size-5 rounded-full border-2 border-[#D6D3D1] p-1 peer-checked:border-emerald-500"
         ></span>
       </label>
     </div>
@@ -113,7 +143,7 @@ const canEvaluate = computed(
         @click="previous"
         >ย้อนกลับ</Button
       >
-      <Button class="flex-2" @click="canEvaluate ? evaluation() : next()">
+      <Button class="flex-2" @click="next()">
         {{ canEvaluate ? "ดูผลลัพธ์" : "ไปยังข้อต่อไป" }}
       </Button>
     </div>

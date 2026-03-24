@@ -13,7 +13,6 @@ const result = ref<Result | null>(null);
 
 const goTo = (destination: Tab) => (tab.value = destination);
 const showResult = (evaluationResult: Result) => {
-    console.log(evaluationResult)
   result.value = evaluationResult;
   tab.value = "result";
 };

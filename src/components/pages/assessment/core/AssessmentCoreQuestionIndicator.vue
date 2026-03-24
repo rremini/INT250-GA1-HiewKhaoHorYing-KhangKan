@@ -12,12 +12,9 @@ type Props = {
 const props = withDefaults(defineProps<Props>(), { questionIndex: 0 });
 const emit = defineEmits<{ (e: "goTo", questionIndex: number) }>();
 
-// const questionIndex = ref(props.questionIndex);
-// const selectedIds = ref<number[]>([]);
-
 const handleClick = (index: number) => {
+  if (props.questionIndex === index) return;
   emit("goTo", index);
-//   questionIndex.value = index;
 };
 </script>
 <template>
