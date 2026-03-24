@@ -18,11 +18,11 @@ const handleClick = (index: number) => {
 };
 </script>
 <template>
-  <div class="flex items-center justify-between">
+  <div class="flex flex-wrap gap-4 items-center justify-between">
     <span class="font-semibold text-[#79716B]"
       >คำถามที่ {{ questionIndex + 1 }} จาก {{ totalQuestion }}</span
     >
-    <div class="flex items-center space-x-3 relative max-w-64 w-full min-w-0">
+    <div class="flex items-center space-x-3 relative md:max-w-82 w-full min-w-0">
       <button
         v-for="(item, index) in questions"
         :key="item.id"
