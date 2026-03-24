@@ -1,4 +1,5 @@
 <script setup>
+import { cn } from '@/utils/merge'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -48,15 +49,9 @@ const menuItems = [
 </script>
 
 <template>
-    <aside
-        class="hidden md:flex w-70 shrink-0 h-screen flex-col bg-[#fafbfc] border-r border-gray-100 px-6 py-8">
+    <aside class="hidden md:flex w-70 shrink-0 h-screen flex-col bg-[#fafbfc] border-r border-gray-100 px-6 py-8">
         <div class="mb-10 pl-2">
-            <div class="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                <div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center">
-                    <span class="text-white text-sm">Logo</span>
-                </div>
-                <span class="text-xl text-slate-700">Khangkan</span>
-            </div>
+            <img src="../../assets/shared/khangkan-logo.svg" alt="Khangkan-Logo" class="h-15 w-auto">
         </div>
 
         <h3 class="text-xs font-semibold text-gray-400 mb-4 pl-4 tracking-wide">
@@ -64,16 +59,12 @@ const menuItems = [
         </h3>
 
         <nav class="flex-1 space-y-2 overflow-y-auto pr-2 custom-scrollbar">
-            <RouterLink 
-                v-for="item in menuItems" 
-                :key="item.id" 
-                :to="item.id === 'home' ? '/' : `/${item.id}`" 
-                :class="[
-                    'flex items-center px-4 py-3.5 rounded-2xl text-sm font-medium transition-all duration-200 focus:outline-none',
-                    activeMenu === item.id
-                        ? 'bg-white text-[#009b77] shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-gray-50'
-                        : 'text-gray-500 hover:bg-gray-100/50 hover:text-gray-700'
-                ]">
+            <RouterLink v-for="item in menuItems" :key="item.id" :to="item.id === 'home' ? '/' : `/${item.id}`" :class="cn(
+                'flex items-center px-4 py-3.5 rounded-2xl text-sm font-medium transition-all border-transparent duration-200 outline-none',
+                activeMenu === item.id
+                    ? 'bg-white text-[#009b77] shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-gray-50'
+                    : 'text-gray-500 hover:bg-gray-100/50 hover:text-gray-700'
+        )">
                 <span class="mr-4 flex items-center justify-center w-6 h-6" v-html="item.icon"></span>
                 {{ item.label }}
             </RouterLink>
@@ -100,12 +91,11 @@ const menuItems = [
 
     <header
         class="md:hidden fixed top-0 left-0 right-0 h-16 bg-white flex items-center justify-between px-5 z-40 border-b border-gray-100">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center">
-                <span class="text-white text-[10px]">Logo</span>
-            </div>
-            <span class="text-lg font-bold text-slate-700">Khangkan</span>
+
+        <div class="flex items-center">
+            <img src="../../assets/shared/khangkan-logo.svg" alt="Khangkan-Logo" class="h-10 w-auto">
         </div>
+
         <div
             class="w-10 h-10 border border-gray-200 rounded-full flex items-center justify-center text-gray-500 cursor-pointer">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -118,14 +108,10 @@ const menuItems = [
 
     <nav
         class="md:hidden fixed bottom-0 left-0 right-0 h-18 bg-white border-t border-gray-100 flex justify-around items-center px-2 z-40 pb-safe">
-        <RouterLink 
-            v-for="item in menuItems" 
-            :key="item.id" 
-            :to="item.id === 'home' ? '/' : `/${item.id}`" 
-            :class="[
-                'flex flex-col items-center justify-center w-full h-full relative transition-colors duration-200 focus:outline-none',
-                activeMenu === item.id ? 'text-[#009b77]' : 'text-[#79716B]'
-            ]">
+        <RouterLink v-for="item in menuItems" :key="item.id" :to="item.id === 'home' ? '/' : `/${item.id}`" :class="[
+            'flex flex-col items-center justify-center w-full h-full relative transition-colors duration-200 focus:outline-none',
+            activeMenu === item.id ? 'text-[#009b77]' : 'text-[#79716B]'
+        ]">
             <div v-if="activeMenu === item.id" class="absolute top-0 w-8 h-0.75 bg-[#009b77] rounded-b-md"></div>
 
             <span class="mb-1 flex items-center justify-center w-6 h-6 mt-1" v-html="item.icon"></span>
