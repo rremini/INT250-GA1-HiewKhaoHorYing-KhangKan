@@ -19,8 +19,9 @@ const showResult = (evaluationResult: Result) => {
 </script>
 
 <template>
-  <div class="py-8 px-5">
-    <div class="flex items-center space-x-2 text-[#A6A09B]">
+  <div class="py-8 px-5 max-w-4xl mx-auto pb-24 md:pb-8">
+    
+    <div class="flex items-center space-x-2 text-[#A6A09B] mb-6">
       <span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -46,11 +47,13 @@ const showResult = (evaluationResult: Result) => {
         </svg>
       </span>
       <p class="font-bold">แบบประเมินสุขภาพจิต</p>
-    </div>
-    <div class="max-w-6xl mx-auto py-8 px-5">
+    </div>   
+
+    <div class="w-full">
       <AssessmentIntro v-if="tab === 'intro'" @start="goTo('core')" />
       <AssessmentCore v-if="tab === 'core'" @result="showResult" />
       <AssessmentResult v-if="tab === 'result'" :result="result" />
     </div>
+
   </div>
 </template>
