@@ -50,13 +50,14 @@ const submitForm = () => {
 
         <div class="relative w-full h-48 md:h-56 bg-slate-800 rounded-3xl overflow-hidden mb-8 shadow-sm">
             <img src="@/assets/consult/consult-an-expert.jpg" alt="Consult Banner"
-                class="absolute inset-0 w-full h-full object-cover opacity-60" />
+                class="absolute inset-0 w-full h-full object-cover opacity-60" draggable="false" />
             <div class="absolute inset-0 bg-linear-to-r from-black/20 to-transparent"></div>
 
             <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-center text-white">
                 <div
                     class="w-10 h-10 border border-white/50 rounded-full flex items-center justify-center mb-3 backdrop-blur-sm bg-white/30">
-                    <svg class="relative left-px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <svg class="relative left-px" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 20 20" fill="none">
                         <path
                             d="M6.58317 16.6666C8.17365 17.4825 10.0032 17.7035 11.7422 17.2898C13.4812 16.876 15.0153 15.8548 16.068 14.4101C17.1206 12.9654 17.6227 11.1922 17.4837 9.41009C17.3446 7.62797 16.5737 5.9541 15.3097 4.69012C14.0457 3.42614 12.3718 2.65517 10.5897 2.51614C8.80758 2.37711 7.0344 2.87916 5.58969 3.93183C4.14498 4.9845 3.12375 6.51855 2.71002 8.25755C2.2963 9.99655 2.51729 11.8261 3.33317 13.4166L1.6665 18.3333L6.58317 16.6666Z"
                             stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
@@ -133,13 +134,18 @@ const submitForm = () => {
 
             <a href="tel:1323"
                 class="inline-flex items-center justify-center gap-2 bg-[#0084D1] hover:bg-[#00598A] text-white px-8 py-3 rounded-full text-sm font-bold transition-colors shadow-md">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
-                    </path>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M14.6667 11.28V13.28C14.6675 13.4657 14.6294 13.6494 14.555 13.8195C14.4807 13.9897 14.3716 14.1424 14.2348 14.2679C14.0979 14.3934 13.9364 14.489 13.7605 14.5485C13.5847 14.6079 13.3983 14.63 13.2134 14.6133C11.1619 14.3904 9.19137 13.6894 7.46004 12.5667C5.84926 11.5431 4.48359 10.1774 3.46004 8.56665C2.33336 6.82745 1.6322 4.84731 1.41337 2.78665C1.39671 2.60229 1.41862 2.41649 1.4777 2.24107C1.53679 2.06564 1.63175 1.90444 1.75655 1.76773C1.88134 1.63102 2.03324 1.52179 2.20256 1.447C2.37189 1.37221 2.55493 1.33349 2.74004 1.33332H4.74004C5.06357 1.33013 5.37723 1.4447 5.62254 1.65567C5.86786 1.86664 6.02809 2.15961 6.07337 2.47998C6.15779 3.12003 6.31434 3.74847 6.54004 4.35332C6.62973 4.59193 6.64915 4.85126 6.59597 5.10057C6.5428 5.34988 6.41928 5.57872 6.24004 5.75998L5.39337 6.60665C6.34241 8.27568 7.72434 9.65761 9.39337 10.6067L10.24 9.75998C10.4213 9.58074 10.6501 9.45722 10.8994 9.40405C11.1488 9.35088 11.4081 9.37029 11.6467 9.45998C12.2516 9.68568 12.88 9.84224 13.52 9.92665C13.8439 9.97234 14.1396 10.1355 14.3511 10.385C14.5625 10.6345 14.6748 10.953 14.6667 11.28Z"
+                        stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M9.3667 1.33331C10.7255 1.47649 11.9948 2.07918 12.9646 3.0417C13.9344 4.00422 14.5466 5.26892 14.7 6.62665"
+                        stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M9.3667 4C10.0224 4.12929 10.624 4.45268 11.0936 4.92821C11.5632 5.40373 11.879 6.00942 12 6.66667"
+                        stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                โทร 1323 ทันที
+                โทร 1323
             </a>
         </div>
 
