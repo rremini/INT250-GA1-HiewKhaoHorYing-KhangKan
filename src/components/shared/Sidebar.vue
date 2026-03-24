@@ -51,7 +51,7 @@ const menuItems = [
 <template>
     <aside class="hidden md:flex w-70 shrink-0 h-screen flex-col bg-[#fafbfc] border-r border-gray-100 px-6 py-8">
         <div class="mb-10 pl-2">
-            <img src="../../assets/shared/khangkan-logo.svg" alt="Khangkan-Logo" class="h-15 w-auto" draggable="false">
+            <img src="../../assets/shared/khangkan-logo.webp" alt="Khangkan-Logo" class="h-15 w-auto" draggable="false">
         </div>
 
         <h3 class="text-xs font-semibold text-gray-400 mb-4 pl-4 tracking-wide">
@@ -93,7 +93,7 @@ const menuItems = [
         class="md:hidden fixed top-0 left-0 right-0 h-16 bg-white flex items-center justify-between px-5 z-40 border-b border-gray-100">
 
         <div class="flex items-center">
-            <img src="../../assets/shared/khangkan-logo.svg" alt="Khangkan-Logo" class="h-10 w-auto">
+            <img src="../../assets/shared/khangkan-logo.webp" alt="Khangkan-Logo" class="h-10 w-auto">
         </div>
 
         <div
