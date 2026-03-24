@@ -1,5 +1,4 @@
 import PageAssessment from "@/pages/PageAssessment.vue";
-import PageConsult from "@/pages/PageConsult.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
