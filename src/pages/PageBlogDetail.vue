@@ -2,7 +2,7 @@
 import { useRoute } from "vue-router"
 import { computed } from "vue"
 
-import { blogs } from "../../data/blog/blogData.js"
+import { blogs } from "../data/blog/blogData"
 
 const route = useRoute()
 
