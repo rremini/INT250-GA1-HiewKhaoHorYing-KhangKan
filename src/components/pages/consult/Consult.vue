@@ -49,7 +49,7 @@ const submitForm = () => {
         </div>
 
         <div class="relative w-full h-48 md:h-56 bg-slate-800 rounded-3xl overflow-hidden mb-8 shadow-sm">
-            <img src="@/assets/consult/consult-an-expert.jpg" alt="Consult Banner"
+            <img src="@/assets/consult/consult-an-expert.png" alt="Consult Banner"
                 class="absolute inset-0 w-full h-full object-cover opacity-60" draggable="false" />
             <div class="absolute inset-0 bg-linear-to-r from-black/20 to-transparent"></div>
 
