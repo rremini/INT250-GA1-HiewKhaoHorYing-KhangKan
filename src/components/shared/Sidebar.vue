@@ -9,9 +9,9 @@ const activeMenu = computed(() => {
     const path = route.path
     if (path.includes('/assessment')) return 'assessment'
     if (path.includes('/consult')) return 'consult'
-    // if (path.includes('/diary')) return 'diary'
-    // if (path.includes('/knowledge')) return 'knowledge'
-    // return 'home'
+    if (path.includes('/diary')) return 'diary'
+    if (path.includes('/knowledge')) return 'knowledge'
+    return 'home'
 })
 
 const menuItems = [

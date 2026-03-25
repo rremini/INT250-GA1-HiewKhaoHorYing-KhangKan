@@ -35,7 +35,7 @@ const emit = defineEmits<{ start: [] }>();
           เพื่อเช็คดูว่าช่วงนี้ใจเราเป็นยังไงบ้าง
         </p>
       </div>
-      <div class="flex items-start p-5 px-6 w-full bg-[#F0F9FF] rounded-2xl">
+      <div class="flex items-start p-4 px-5 md:p-5 md:px-6 w-full bg-[#F0F9FF] rounded-2xl">
         <div class="size-max flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -68,10 +68,10 @@ const emit = defineEmits<{ start: [] }>();
           </svg>
         </div>
         <div class="ml-4">
-          <h6 class="text-lg font-black text-[#00598A]">
+          <h6 class="md:text-lg font-black text-[#00598A]">
             พื้นที่ปลอดภัยของคุณ
           </h6>
-          <p class="text-sm text-[#57534D] mt-1">
+          <p class="text-xs md:text-sm text-[#57534D] mt-1">
             ข้อมูลการประเมินทั้งหมดจะไม่ถูกระบุตัวตนและถูกเก็บเป็นความลับ
             สบายใจได้เลย
           </p>

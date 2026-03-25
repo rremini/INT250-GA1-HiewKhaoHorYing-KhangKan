@@ -1,5 +1,6 @@
 import PageAssessment from "@/pages/PageAssessment.vue";
 import PageConsult from "@/pages/PageConsult.vue"
+import PageHome from "@/pages/PageHome.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
@@ -10,6 +11,10 @@ const routes = [
   {
     path: "/consult",
     component: PageConsult
+  },
+  {
+    path: "",
+    component: PageHome
   }
 ];
 
