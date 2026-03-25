@@ -6,7 +6,7 @@ import { blogs } from "../../data/blog/blogData.js"
 <template>
 
 
-    <div class="max-w-3xl mx-auto px-6 py-8 mt-1">
+    <div class="max-w-3xl mx-auto px-6 py-8 ">
 
         <div class="flex items-center gap-2 text-sm text-gray-400 mb-3 ml-1">
             <span class="text-sm leading-none"><img src="../../assets/blog/book-open-svgrepo-com.svg" alt="" class="w-3 h-3 sm:w-4 sm:h-4"></span>
