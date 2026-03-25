@@ -2,6 +2,8 @@ import PageAssessment from "@/pages/PageAssessment.vue";
 import PageConsult from "@/pages/PageConsult.vue"
 import PageDiary from "@/pages/PageDiary.vue";
 import PageHome from "@/pages/PageHome.vue";
+import BlogDetail from "@/pages/PageBlogDetail.vue";
+import BlogList from "@/pages/PageBlogList.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
@@ -18,6 +20,16 @@ const routes = [
     component: PageHome
   },
   {
+    path: "/blogs",
+    name: "blogs",
+    component: BlogList
+  },
+  {
+    path: "/blogs/:id",
+    name: "blog-detail",
+    component: BlogDetail
+  },
+  {
     path: "/diary",
     component: PageDiary
   }
@@ -25,7 +37,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
-});
+  routes
+})
 
 export default router;
