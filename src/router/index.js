@@ -1,5 +1,6 @@
 import PageAssessment from "@/pages/PageAssessment.vue";
 import PageConsult from "@/pages/PageConsult.vue"
+import PageDiary from "@/pages/PageDiary.vue";
 import PageHome from "@/pages/PageHome.vue";
 import BlogDetail from "@/pages/PageBlogDetail.vue";
 import BlogList from "@/pages/PageBlogList.vue";
@@ -27,6 +28,10 @@ const routes = [
     path: "/blogs/:id",
     name: "blog-detail",
     component: BlogDetail
+  },
+  {
+    path: "/diary",
+    component: PageDiary
   }
 ];
 
