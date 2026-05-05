@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import { Component } from "vue";
+import { Component, onMounted } from "vue";
 import { AssessmentResult as Result } from "./core/AssessmentCore.vue";
 import { cn } from "@/utils/merge";
 import Button from "@/components/ui/Button.vue";
+import { useRouter } from "vue-router";
+import { useMoodStore } from "@/stores/mood";
+
+const router = useRouter();
+const mood = useMoodStore();
 
 const props = withDefaults(defineProps<{ result: Result | null }>(), {
   result: null,
@@ -82,7 +87,19 @@ const varaints: Record<
   },
 };
 
-const content = varaints[props.result];
+const content = varaints[props.result || "none"];
+
+const goToConsultPage = () => navigate("/consult");
+const goToSuggestionBlogsPage = () => navigate("/blogs");
+const goToHomePage = () => navigate("/");
+
+function navigate(to: string) {
+  router.push(to);
+}
+
+onMounted(() => {
+  mood.$patch({ mood: props.result || "none" });
+});
 </script>
 <template>
   <div>
@@ -298,7 +315,11 @@ const content = varaints[props.result];
       </div>
     </div>
     <div class="mt-4 *:w-full flex flex-col space-y-3">
-      <Button v-if="result === 'extreme'" class="bg-[#EC003F]">
+      <Button
+        v-if="result === 'extreme'"
+        class="bg-[#EC003F]"
+        @click="goToConsultPage"
+      >
         <span class="mr-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -318,8 +339,12 @@ const content = varaints[props.result];
         </span>
         คุยกับผู้เชี่ยวชาญ
       </Button>
-      <Button class="bg-black">อ่านบทความแนะนำ</Button>
-      <Button class="bg-white border border-[#E7E5E4] text-black">กลับหน้าหลัก</Button>
+      <Button class="bg-black" @click="goToSuggestionBlogsPage"
+        >อ่านบทความแนะนำ</Button
+      >
+      <Button class="bg-white border border-[#E7E5E4] text-black" @click="goToHomePage"
+        >กลับหน้าหลัก</Button
+      >
     </div>
   </div>
 </template>

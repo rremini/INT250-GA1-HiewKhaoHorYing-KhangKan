@@ -89,7 +89,7 @@ const evaluation = () => {
       { min: 0, key: "none" },
     ];
 
-    const result = levels.find((level) => totalScore >= level.min).key;
+    const result = levels.find((level) => totalScore >= level.min)!.key;
 
     emit("result", result ?? "none");
   }
