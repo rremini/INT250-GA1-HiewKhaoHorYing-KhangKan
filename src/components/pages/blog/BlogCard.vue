@@ -39,7 +39,7 @@ const getImage = (id) => {
             </div>
           </div>
 
-          <h2 class="text-sm sm:text-lg font-bold text-gray-800 leading-tight sm:leading-snug line-clamp-2 group-hover:text-emerald-600 transition-colors">
+          <h2 class=" text-sm sm:text-lg font-bold text-gray-800 leading-tight sm:leading-snug line-clamp-2 group-hover:text-emerald-600 transition-colors">
             {{ blog.title }}
           </h2>
         </div>
