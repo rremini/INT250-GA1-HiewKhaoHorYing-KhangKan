@@ -5,8 +5,8 @@
       <!-- Header -->
       <header class="flex items-center justify-between pt-2 sm:pt-4">
         <div>
-          <p class="text-[#78C496] text-xs sm:text-sm font-bold uppercase tracking-wider mb-1">เคียงข้างคุณทุกวัน</p>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-[#4A6B8A] tracking-tight">บันทึกอารมณ์ของคุณ</h1>
+          <p class="text-[#78C496] text-xs sm:text-sm font-bold uppercase mb-1">เคียงข้างคุณทุกวัน</p>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-[#4A6B8A]">บันทึกอารมณ์ของคุณ</h1>
           <p class="text-slate-500 mt-1 text-sm sm:text-base font-medium">พื้นที่ปลอดภัยสำหรับความรู้สึก</p>
         </div>
         <div class="hidden sm:flex items-center gap-3 bg-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-sm border border-slate-100">
@@ -22,7 +22,7 @@
 
       <!-- ส่วนที่ 1: เลือกความรู้สึก (แก้ไข Responsive ใหม่) -->
       <section class="bg-white rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-slate-100 p-5 sm:p-6 md:p-8">
-        <p class="text-center text-[#78C496] font-semibold text-xs sm:text-sm uppercase tracking-widest mb-6 md:mb-10">
+        <p class="text-center text-[#78C496] font-semibold text-xs sm:text-sm uppercase mb-6 md:mb-10">
           เลือกความรู้สึกของคุณตอนนี้
         </p>
 
@@ -48,7 +48,7 @@
             <!-- ข้อความ -->
             <div class="flex flex-col items-center gap-1.5 h-8">
               <span 
-                class="text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 text-center whitespace-nowrap"
+                class="text-[10px] sm:text-xs font-bold uppercase transition-all duration-300 text-center whitespace-nowrap"
                 :class="selectedMood === mood.value ? mood.activeText : 'text-slate-400 opacity-100 md:opacity-0 md:group-hover:opacity-100'"
               >
                 {{ mood.label }}
