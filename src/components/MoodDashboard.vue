@@ -1,28 +1,28 @@
 <template>
-  <div class="bg-slate-50 min-h-screen p-3 sm:p-5 md:p-8 text-slate-800">
+  <div class="bg-background min-h-screen p-3 sm:p-5 md:p-8 text-foreground transition-colors duration-300">
     <div class="max-w-3xl mx-auto space-y-4 sm:space-y-6 md:space-y-8">
 
       <!-- Header -->
       <header class="flex items-center justify-between pt-2 sm:pt-4">
         <div>
-          <p class="text-[#78C496] text-xs sm:text-sm font-bold uppercase mb-1">เคียงข้างคุณทุกวัน</p>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-[#4A6B8A]">บันทึกอารมณ์ของคุณ</h1>
-          <p class="text-slate-500 mt-1 text-sm sm:text-base font-medium">พื้นที่ปลอดภัยสำหรับความรู้สึก</p>
+          <p class="text-primary text-xs sm:text-sm font-bold uppercase mb-1">เคียงข้างคุณทุกวัน</p>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-foreground">บันทึกอารมณ์ของคุณ</h1>
+          <p class="text-muted-foreground mt-1 text-sm sm:text-base font-medium">พื้นที่ปลอดภัยสำหรับความรู้สึก</p>
         </div>
-        <div class="hidden sm:flex items-center gap-3 bg-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-sm border border-slate-100">
-          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#FCE07C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <div class="hidden sm:flex items-center gap-3 bg-card px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-sm border border-border">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
-          <span class="text-sm font-semibold text-slate-600">สถิติวันนี้</span>
+          <span class="text-sm font-semibold text-muted-foreground">สถิติวันนี้</span>
         </div>
       </header>
 
       <!-- ส่วนที่ 1: เลือกความรู้สึก (แก้ไข Responsive ใหม่) -->
-      <section class="bg-white rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-slate-100 p-5 sm:p-6 md:p-8">
-        <p class="text-center text-[#78C496] font-semibold text-xs sm:text-sm uppercase mb-6 md:mb-10">
+      <section class="bg-card rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-border p-5 sm:p-6 md:p-8">
+        <p class="text-center text-primary font-semibold text-xs sm:text-sm uppercase mb-6 md:mb-10">
           เลือกความรู้สึกของคุณตอนนี้
         </p>
 
@@ -38,7 +38,7 @@
               class="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl flex items-center justify-center transition-all duration-300 border-2 shrink-0"
               :class="selectedMood === mood.value 
                 ? [mood.activeBorder, mood.activeBg, mood.activeText] 
-                : ['bg-white border-slate-100 text-slate-300', mood.hoverBorder, mood.hoverText]"
+                : ['bg-card border-border text-muted-foreground/40', mood.hoverBorder, mood.hoverText]"
             >
               <svg class="w-7 h-7 sm:w-10 sm:h-10 transition-transform duration-300" :class="selectedMood === mood.value ? 'scale-110' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path :d="mood.svgPath"></path>
@@ -49,13 +49,13 @@
             <div class="flex flex-col items-center gap-1.5 h-8">
               <span 
                 class="text-[10px] sm:text-xs font-bold uppercase transition-all duration-300 text-center whitespace-nowrap"
-                :class="selectedMood === mood.value ? mood.activeText : 'text-slate-400 opacity-100 md:opacity-0 md:group-hover:opacity-100'"
+                :class="selectedMood === mood.value ? mood.activeText : 'text-muted-foreground/60 opacity-100 md:opacity-0 md:group-hover:opacity-100'"
               >
                 {{ mood.label }}
               </span>
               <div 
                 class="h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full transition-all duration-300 hidden md:block"
-                :class="selectedMood === mood.value ? 'bg-[#FCE07C] scale-100' : 'bg-transparent scale-0'"
+                :class="selectedMood === mood.value ? 'bg-yellow-400 scale-100' : 'bg-transparent scale-0'"
               ></div>
             </div>
           </button>
@@ -63,22 +63,22 @@
       </section>
 
       <!-- ส่วนที่ 2: Dashboard แสดงผลย้อนหลัง 7 วัน -->
-      <section class="bg-white rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-slate-100 p-5 sm:p-6 md:p-8">
+      <section class="bg-card rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-border p-5 sm:p-6 md:p-8">
         <div class="flex items-center gap-3 mb-6 md:mb-8">
-          <div class="bg-slate-50 p-2 sm:p-2.5 rounded-xl text-[#8DB4E2]">
+          <div class="bg-muted p-2 sm:p-2.5 rounded-xl text-blue-400">
             <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
             </svg>
           </div>
           <div>
-            <h2 class="font-bold text-[#4A6B8A] text-base sm:text-lg">ภาพรวมอารมณ์ 7 วันล่าสุด</h2>
-            <p class="text-xs sm:text-sm text-slate-500">ติดตามความเปลี่ยนแปลงของตัวคุณ</p>
+            <h2 class="font-bold text-foreground text-base sm:text-lg">ภาพรวมอารมณ์ 7 วันล่าสุด</h2>
+            <p class="text-xs sm:text-sm text-muted-foreground">ติดตามความเปลี่ยนแปลงของตัวคุณ</p>
           </div>
         </div>
 
         <div class="h-32 sm:h-40 md:h-48 flex items-end justify-between px-1 sm:px-4 md:px-6 gap-1 sm:gap-2">
           <div v-for="(d, i) in days" :key="i" class="flex flex-col items-center gap-2 sm:gap-3 w-full group">
-            <div class="w-full max-w-[8px] sm:max-w-[12px] md:max-w-[16px] bg-slate-100 rounded-full h-24 sm:h-32 md:h-36 flex items-end relative transition-all group-hover:bg-slate-200">
+            <div class="w-full max-w-[8px] sm:max-w-[12px] md:max-w-[16px] bg-muted rounded-full h-24 sm:h-32 md:h-36 flex items-end relative transition-all group-hover:bg-accent">
               <div
                 class="w-full rounded-full transition-all duration-700 ease-out"
                 :class="getColor(d.mood)"
@@ -86,31 +86,31 @@
               ></div>
             </div>
             <div class="text-center">
-              <p class="text-[9px] sm:text-xs font-semibold text-slate-400 mb-0.5 sm:mb-1 group-hover:text-[#4A6B8A] transition-colors">{{ d.label }}</p>
+              <p class="text-[9px] sm:text-xs font-semibold text-muted-foreground mb-0.5 sm:mb-1 group-hover:text-foreground transition-colors">{{ d.label }}</p>
               <div 
                 class="h-1 w-1 rounded-full mx-auto transition-all hidden sm:block"
-                :class="d.label === 'วันนี้' ? 'bg-[#FCE07C] scale-100' : 'bg-transparent scale-0'"
+                :class="d.label === 'วันนี้' ? 'bg-yellow-400 scale-100' : 'bg-transparent scale-0'"
               ></div>
             </div>
           </div>
         </div>
 
-        <div class="mt-6 md:mt-8 pt-5 md:pt-6 border-t border-slate-100">
-          <div class="flex items-center gap-2 mb-3 text-slate-400">
+        <div class="mt-6 md:mt-8 pt-5 md:pt-6 border-t border-border">
+          <div class="flex items-center gap-2 mb-3 text-muted-foreground">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
               <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
               <line x1="7" y1="7" x2="7.01" y2="7"></line>
             </svg>
-            <p class="text-slate-500 font-medium text-xs sm:text-sm">แท็กที่ส่งผลต่ออารมณ์บ่อยที่สุด</p>
+            <p class="text-muted-foreground font-medium text-xs sm:text-sm">แท็กที่ส่งผลต่ออารมณ์บ่อยที่สุด</p>
           </div>
           <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-slate-50 hover:bg-[#8DB4E2]/10 transition border border-slate-100 rounded-xl text-[10px] sm:text-xs font-semibold text-slate-600 cursor-pointer">
+            <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-muted hover:bg-accent transition border border-border rounded-xl text-[10px] sm:text-xs font-semibold text-foreground cursor-pointer">
               📚 การเรียน
             </span>
-            <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-slate-50 hover:bg-[#8DB4E2]/10 transition border border-slate-100 rounded-xl text-[10px] sm:text-xs font-semibold text-slate-600 cursor-pointer">
+            <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-muted hover:bg-accent transition border border-border rounded-xl text-[10px] sm:text-xs font-semibold text-foreground cursor-pointer">
               💰 การเงิน
             </span>
-            <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-slate-50 hover:bg-[#8DB4E2]/10 transition border border-slate-100 rounded-xl text-[10px] sm:text-xs font-semibold text-slate-600 cursor-pointer">
+            <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-muted hover:bg-accent transition border border-border rounded-xl text-[10px] sm:text-xs font-semibold text-foreground cursor-pointer">
               😴 พักผ่อน
             </span>
           </div>
@@ -118,24 +118,24 @@
       </section>
 
       <!-- ส่วนที่ 3: บันทึก Journal -->
-      <section class="bg-white rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-slate-100 p-5 sm:p-6 md:p-8 mb-8 relative overflow-hidden">
+      <section class="bg-card rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-border p-5 sm:p-6 md:p-8 mb-8 relative overflow-hidden">
         <div class="absolute top-0 right-0 p-4 opacity-20 pointer-events-none">
-          <div class="w-24 h-24 sm:w-32 sm:h-32 bg-[#FCE07C] rounded-full blur-2xl sm:blur-3xl -mr-8 -mt-8 sm:-mr-10 sm:-mt-10"></div>
+          <div class="w-24 h-24 sm:w-32 sm:h-32 bg-yellow-400 rounded-full blur-2xl sm:blur-3xl -mr-8 -mt-8 sm:-mr-10 sm:-mt-10"></div>
         </div>
 
         <div class="flex items-center gap-3 mb-4 relative z-10">
-          <div class="bg-slate-50 p-2 sm:p-2.5 rounded-xl text-[#78C496]">
+          <div class="bg-muted p-2 sm:p-2.5 rounded-xl text-primary">
             <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
               <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
               <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
             </svg>
           </div>
-          <h2 class="font-bold text-[#4A6B8A] text-base sm:text-lg">บันทึกส่วนตัว (Journal)</h2>
+          <h2 class="font-bold text-foreground text-base sm:text-lg">บันทึกส่วนตัว (Journal)</h2>
         </div>
 
         <textarea
           v-model="note"
-          class="w-full h-28 sm:h-36 p-4 sm:p-5 text-sm sm:text-base border border-slate-100 rounded-2xl bg-slate-50/50 text-slate-700 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#78C496]/30 focus:border-[#78C496] focus:outline-none transition-all resize-none relative z-10"
+          class="w-full h-28 sm:h-36 p-4 sm:p-5 text-sm sm:text-base border border-border rounded-2xl bg-muted/50 text-foreground placeholder-muted-foreground focus:bg-card focus:ring-2 focus:ring-primary/30 focus:border-primary focus:outline-none transition-all resize-none relative z-10"
           placeholder="มีอะไรอยู่ในใจ? เขียนระบายตรงนี้ได้เลย..."
         ></textarea>
 
@@ -143,7 +143,7 @@
         <div class="mt-5 sm:mt-6 flex flex-col items-center gap-3 relative z-10">
           <button 
             @click="saveEntry"
-            class="w-full sm:w-auto px-6 py-3.5 sm:px-12 sm:py-4 bg-[#78C496] hover:bg-[#66b385] text-white text-sm sm:text-base font-bold rounded-2xl shadow-lg shadow-[#78C496]/20 transition-all active:scale-95 flex items-center justify-center gap-2"
+            class="w-full sm:w-auto px-6 py-3.5 sm:px-12 sm:py-4 bg-primary hover:bg-primary/90 text-white text-sm sm:text-base font-bold rounded-2xl shadow-lg shadow-primary/20 transition-all active:scale-95 flex items-center justify-center gap-2"
           >
             <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -152,7 +152,7 @@
           </button>
           
           <div class="h-6 flex items-center justify-center">
-            <p v-if="saveStatus" class="text-xs sm:text-sm font-medium text-[#78C496] animate-pulse">
+            <p v-if="saveStatus" class="text-xs sm:text-sm font-medium text-primary animate-pulse">
               {{ saveStatus }}
             </p>
           </div>
