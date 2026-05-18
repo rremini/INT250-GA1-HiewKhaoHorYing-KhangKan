@@ -110,14 +110,14 @@ const canEvaluate = computed(
     />
   </div>
   <div
-    class="p-6 w-ful flex flex-col border-[0.8px] bg-white border-[#F5F5F4] rounded-3xl shadow-[0_1px_3px_0_rgba(0,0,0,0.10),0_1px_2px_-1px_rgba(0,0,0,0.10)]"
+    class="p-6 w-ful flex flex-col border-[0.8px] bg-card border-border rounded-3xl shadow-sm transition-colors duration-300"
   >
-    <p class="text-2xl text-center font-bold max-w-xl mx-auto my-12">
+    <p class="text-2xl text-center font-bold max-w-xl mx-auto my-12 text-foreground">
       {{ currentQuestion.title }}
     </p>
     <div class="flex flex-col space-y-3">
       <label
-        class="flex items-center py-4 px-6 border border-[#E7E5E4] rounded-2xl font-semibold cursor-pointer has-checked:border-emerald-500 has-checked:bg-emerald-500/20"
+        class="flex items-center py-4 px-6 border border-border rounded-2xl font-semibold cursor-pointer transition-all duration-200 hover:bg-accent has-checked:border-primary has-checked:bg-primary/10 text-foreground"
         v-for="choice in currentQuestion.choices"
         :key="`${currentQuestion.id}-${choice.id}`"
       >
@@ -132,13 +132,16 @@ const canEvaluate = computed(
           {{ choice.label }}
         </span>
         <span
-          class="ml-auto mr-0 flex items-center justify-center size-5 rounded-full border-2 border-[#D6D3D1] p-1 peer-checked:border-emerald-500"
-        ></span>
+          class="ml-auto mr-0 flex items-center justify-center size-5 rounded-full border-2 border-input p-1 peer-checked:border-primary transition-colors"
+        >
+          <div class="size-2 rounded-full bg-primary scale-0 peer-checked:scale-100 transition-transform duration-200"></div>
+        </span>
       </label>
     </div>
     <div class="flex mt-6 gap-3 w-full max-w-lg mx-auto">
       <Button
-        class="flex-1 bg-slate-200 text-black"
+        variant="secondary"
+        class="flex-1"
         :disabled="questionIndex === 0"
         @click="previous"
         >ย้อนกลับ</Button

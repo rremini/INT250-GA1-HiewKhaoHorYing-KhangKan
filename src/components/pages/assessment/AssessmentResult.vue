@@ -29,9 +29,9 @@ const varaints: Record<
 > = {
   none: {
     colors: {
-      primary: "#009966",
-      secondary: "#ECFDF5",
-      accent: "#A4F4CF",
+      primary: "var(--result-none)",
+      secondary: "var(--result-none-bg)",
+      accent: "var(--result-none-accent)",
     },
     title: "ไม่มีอาการซึมเศร้า หรือมีน้อยมาก",
     description: "สุขภาพจิตโดยรวมถือว่าอยู่ในเกณฑ์ปกติครับ",
@@ -40,9 +40,9 @@ const varaints: Record<
   },
   mild: {
     colors: {
-      primary: "#759900",
-      secondary: "#F8FDEC",
-      accent: "#EBF4A4",
+      primary: "var(--result-mild)",
+      secondary: "var(--result-mild-bg)",
+      accent: "var(--result-mild-accent)",
     },
     title: "มีอาการซึมเศร้าระดับน้อย",
     description:
@@ -52,9 +52,9 @@ const varaints: Record<
   },
   moderate: {
     colors: {
-      primary: "#E17100",
-      secondary: "#FFFBEB",
-      accent: "#FEE78B",
+      primary: "var(--result-moderate)",
+      secondary: "var(--result-moderate-bg)",
+      accent: "var(--result-moderate-accent)",
     },
     title: "มีอาการซึมเศร้าระดับปานกลาง",
     description:
@@ -64,9 +64,9 @@ const varaints: Record<
   },
   severe: {
     colors: {
-      primary: "#FF6567",
-      secondary: "#FFF1F1",
-      accent: "#FFCCCD",
+      primary: "var(--result-severe)",
+      secondary: "var(--result-severe-bg)",
+      accent: "var(--result-severe-accent)",
     },
     title: "มีอาการซึมเศร้าระดับรุนแรง (ปานกลางค่อนข้างรุนแรง)",
     description: "อาการซึมเศร้าค่อนข้างชัดเจนและรบกวนชีวิตประจำวันอย่างมาก",
@@ -75,9 +75,9 @@ const varaints: Record<
   },
   extreme: {
     colors: {
-      primary: "#EC003F",
-      secondary: "#FFF1F2",
-      accent: "#FFCCD2",
+      primary: "var(--result-extreme)",
+      secondary: "var(--result-extreme-bg)",
+      accent: "var(--result-extreme-accent)",
     },
     title: "มีอาการซึมเศร้าระดับรุนแรงมาก",
     description:
@@ -106,7 +106,7 @@ onMounted(() => {
     <div
       :class="
         cn(
-          'p-9 w-ful flex flex-col border-2 bg-white border-[#F5F5F4] rounded-3xl shadow-[0_1px_3px_0_rgba(0,0,0,0.10),0_1px_2px_-1px_rgba(0,0,0,0.10)]',
+          'p-9 w-ful flex flex-col border-2 bg-card border-border rounded-3xl shadow-sm transition-colors duration-300',
         )
       "
       :style="{
@@ -115,7 +115,7 @@ onMounted(() => {
       }"
     >
       <div
-        class="size-24 flex items-center justify-center rounded-full p-2 bg-white shadow-[0_1px_3px_0_rgba(0,0,0,0.10),0_1px_2px_-1px_rgba(0,0,0,0.10)] mx-auto"
+        class="size-24 flex items-center justify-center rounded-full p-2 bg-card border border-border/50 shadow-sm mx-auto"
       >
         <svg
           v-if="result === 'none'"
@@ -127,28 +127,28 @@ onMounted(() => {
         >
           <path
             d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
-            stroke="#009966"
+            stroke="var(--result-none)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M16 28C16 28 19 32 24 32C29 32 32 28 32 28"
-            stroke="#009966"
+            stroke="var(--result-none)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M18 18H18.02"
-            stroke="#009966"
+            stroke="var(--result-none)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M30 18H30.02"
-            stroke="#009966"
+            stroke="var(--result-none)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -164,28 +164,28 @@ onMounted(() => {
         >
           <path
             d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
-            stroke="#759900"
+            stroke="var(--result-mild)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M16 30H32"
-            stroke="#759900"
+            stroke="var(--result-mild)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M18 18H18.02"
-            stroke="#759900"
+            stroke="var(--result-mild)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M30 18H30.02"
-            stroke="#759900"
+            stroke="var(--result-mild)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -201,28 +201,28 @@ onMounted(() => {
         >
           <path
             d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
-            stroke="#E17100"
+            stroke="var(--result-moderate)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M16 30H32"
-            stroke="#E17100"
+            stroke="var(--result-moderate)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M18 18H18.02"
-            stroke="#E17100"
+            stroke="var(--result-moderate)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M30 18H30.02"
-            stroke="#E17100"
+            stroke="var(--result-moderate)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -238,28 +238,28 @@ onMounted(() => {
         >
           <path
             d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
-            stroke="#FF6467"
+            stroke="var(--result-severe)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M32 32C32 32 29 28 24 28C19 28 16 32 16 32"
-            stroke="#FF6467"
+            stroke="var(--result-severe)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M18 18H18.02"
-            stroke="#FF6467"
+            stroke="var(--result-severe)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M30 18H30.02"
-            stroke="#FF6467"
+            stroke="var(--result-severe)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -275,28 +275,28 @@ onMounted(() => {
         >
           <path
             d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
-            stroke="#EC003F"
+            stroke="var(--result-extreme)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M32 32C32 32 29 28 24 28C19 28 16 32 16 32"
-            stroke="#EC003F"
+            stroke="var(--result-extreme)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M18 18H18.02"
-            stroke="#EC003F"
+            stroke="var(--result-extreme)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M30 18H30.02"
-            stroke="#EC003F"
+            stroke="var(--result-extreme)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -304,11 +304,11 @@ onMounted(() => {
         </svg>
       </div>
       <div class="mx-auto text-center mt-7">
-        <h1 class="text-2xl font-bold">{{ content.title }}</h1>
-        <p class="text-[#44403B] mt-1">{{ content.description }}</p>
+        <h1 class="text-2xl font-bold text-foreground">{{ content.title }}</h1>
+        <p class="text-muted-foreground mt-1">{{ content.description }}</p>
       </div>
       <div
-        class="mt-10 rounded-xl bg-white py-3 px-4 w-max mx-auto text-sm font-semibold"
+        class="mt-10 rounded-xl bg-card border border-border py-3 px-4 w-max mx-auto text-sm font-bold shadow-sm"
         :style="{ color: content.colors.primary }"
       >
         ระดับความเครียด
@@ -317,7 +317,7 @@ onMounted(() => {
     <div class="mt-4 *:w-full flex flex-col space-y-3">
       <Button
         v-if="result === 'extreme'"
-        class="bg-[#EC003F]"
+        class="bg-destructive hover:bg-destructive/90 text-white"
         @click="goToConsultPage"
       >
         <span class="mr-4">
@@ -339,10 +339,10 @@ onMounted(() => {
         </span>
         คุยกับผู้เชี่ยวชาญ
       </Button>
-      <Button class="bg-black" @click="goToSuggestionBlogsPage"
+      <Button variant="secondary" @click="goToSuggestionBlogsPage"
         >อ่านบทความแนะนำ</Button
       >
-      <Button class="bg-white border border-[#E7E5E4] text-black" @click="goToHomePage"
+      <Button variant="outline" class="bg-card text-foreground" @click="goToHomePage"
         >กลับหน้าหลัก</Button
       >
     </div>

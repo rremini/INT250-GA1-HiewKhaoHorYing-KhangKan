@@ -19,7 +19,7 @@ const handleClick = (index: number) => {
 </script>
 <template>
   <div class="flex flex-wrap gap-4 items-center justify-between">
-    <span class="font-semibold text-[#79716B]"
+    <span class="font-semibold text-muted-foreground"
       >คำถามที่ {{ questionIndex + 1 }} จาก {{ totalQuestion }}</span
     >
     <div class="flex items-center space-x-3 relative md:max-w-82 w-full min-w-0">
@@ -28,7 +28,7 @@ const handleClick = (index: number) => {
         :key="item.id"
         :data-active="selectedIds.some((id) => id === item.id)"
         @click="handleClick(index)"
-        class="w-full p-1 h-1.5 rounded-full bg-[#E7E5E4] data-[active=true]:bg-[#00BC7D] cursor-pointer"
+        class="w-full p-1 h-1.5 rounded-full bg-muted data-[active=true]:bg-primary cursor-pointer transition-colors duration-200"
       ></button>
     </div>
   </div>
