@@ -20,7 +20,6 @@
         </div>
       </header>
 
-      <!-- ส่วนที่ 1: เลือกความรู้สึก (แก้ไข Responsive ใหม่) -->
       <section class="bg-card rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-border p-5 sm:p-6 md:p-8">
         <p class="text-center text-primary font-semibold text-xs sm:text-sm uppercase mb-6 md:mb-10">
           เลือกความรู้สึกของคุณตอนนี้
@@ -33,7 +32,6 @@
             @click="selectedMood = mood.value"
             class="group focus:outline-none flex flex-col items-center gap-2 md:gap-3 w-[64px] sm:w-[88px]"
           >
-            <!-- กล่องไอคอน (ฟิกซ์ขนาดตายตัว ป้องกันการยืดเบี้ยว) -->
             <div 
               class="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl flex items-center justify-center transition-all duration-300 border-2 shrink-0"
               :class="selectedMood === mood.value 
@@ -45,7 +43,6 @@
               </svg>
             </div>
             
-            <!-- ข้อความ -->
             <div class="flex flex-col items-center gap-1.5 h-8">
               <span 
                 class="text-[10px] sm:text-xs font-bold uppercase transition-all duration-300 text-center whitespace-nowrap"
@@ -62,7 +59,6 @@
         </div>
       </section>
 
-      <!-- ส่วนที่ 2: Dashboard แสดงผลย้อนหลัง 7 วัน -->
       <section class="bg-card rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-border p-5 sm:p-6 md:p-8">
         <div class="flex items-center gap-3 mb-6 md:mb-8">
           <div class="bg-muted p-2 sm:p-2.5 rounded-xl text-blue-400">
@@ -117,7 +113,6 @@
         </div>
       </section>
 
-      <!-- ส่วนที่ 3: บันทึก Journal -->
       <section class="bg-card rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-border p-5 sm:p-6 md:p-8 mb-8 relative overflow-hidden">
         <div class="absolute top-0 right-0 p-4 opacity-20 pointer-events-none">
           <div class="w-24 h-24 sm:w-32 sm:h-32 bg-yellow-400 rounded-full blur-2xl sm:blur-3xl -mr-8 -mt-8 sm:-mr-10 sm:-mt-10"></div>
