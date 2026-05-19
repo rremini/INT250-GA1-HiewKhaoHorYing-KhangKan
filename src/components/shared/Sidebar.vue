@@ -51,9 +51,7 @@ const menuItems = [
 
 <template>
     <aside class="hidden md:flex w-70 shrink-0 h-screen flex-col bg-card border-r border-border px-6 py-8 transition-colors duration-300">
-        <div class="mb-10 pl-2 flex items-center justify-between">
-            <img src="../../assets/shared/khangkan-logo.webp" alt="Khangkan-Logo" class="h-15 w-auto dark:brightness-110" draggable="false">
-            <ThemeToggle />
+        <div class="mb-10 pl-2 flex items-center justify-start"> <img src="../../assets/shared/khangkan-logo.webp" alt="Khangkan-Logo" class="h-15 w-auto dark:brightness-110" draggable="false">
         </div>
 
         <h3 class="text-xs font-semibold text-muted-foreground mb-4 pl-4 tracking-wide uppercase">
@@ -72,20 +70,24 @@ const menuItems = [
             </RouterLink>
         </nav>
 
-        <div class="mt-auto pt-6">
-            <div class="border-t border-border pb-6"></div>
-            <div
-                class="bg-card rounded-2xl p-3 flex items-center shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-border cursor-pointer hover:bg-accent transition-colors">
-                <div class="w-10 h-10 bg-muted rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                </div>
-                <div class="overflow-hidden">
-                    <p class="text-sm font-bold text-foreground truncate">ผู้ใช้งาน</p>
-                    <p class="text-[11px] font-medium text-primary truncate">โหมดไม่ระบุตัวตน</p>
+        <div class="mt-auto pt-4"> <div class="border-t border-border pb-4"></div>
+            <div class="flex flex-col gap-3">
+                
+                <ThemeToggle :fullWidth="true" />
+
+                <div
+                    class="bg-card rounded-2xl p-3 flex items-center shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-border cursor-pointer hover:bg-accent transition-colors">
+                    <div class="w-10 h-10 bg-muted rounded-full flex items-center justify-center mr-3 shrink-0">
+                        <svg class="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="overflow-hidden">
+                        <p class="text-sm font-bold text-foreground truncate">ผู้ใช้งาน</p>
+                        <p class="text-[11px] font-medium text-primary truncate">โหมดไม่ระบุตัวตน</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,6 +102,7 @@ const menuItems = [
 
         <div class="flex items-center gap-3">
             <ThemeToggle />
+            
             <div
                 class="w-10 h-10 border border-border rounded-full flex items-center justify-center text-muted-foreground cursor-pointer bg-card">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"

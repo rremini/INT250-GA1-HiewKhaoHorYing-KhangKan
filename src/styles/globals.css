@@ -119,8 +119,8 @@
     --result-severe-accent: #9f1239;
 
     --result-extreme: #f43f5e;
-    --result-extreme-bg: #9f1239;
-    --result-extreme-accent: #be123c;
+    --result-extreme-bg: #460819;
+    --result-extreme-accent: #77102a;
   }
 }
 
@@ -140,3 +140,4 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
