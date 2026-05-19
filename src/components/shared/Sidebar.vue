@@ -2,6 +2,7 @@
 import { cn } from '@/utils/merge'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import ThemeToggle from '../ui/ThemeToggle.vue'
 
 const route = useRoute()
 
@@ -49,12 +50,11 @@ const menuItems = [
 </script>
 
 <template>
-    <aside class="hidden md:flex w-70 shrink-0 h-screen flex-col bg-[#fafbfc] border-r border-gray-100 px-6 py-8">
-        <div class="mb-10 pl-2">
-            <img src="../../assets/shared/khangkan-logo.webp" alt="Khangkan-Logo" class="h-15 w-auto" draggable="false">
+    <aside class="hidden md:flex w-70 shrink-0 h-screen flex-col bg-card border-r border-border px-6 py-8 transition-colors duration-300">
+        <div class="mb-10 pl-2 flex items-center justify-start"> <img src="../../assets/shared/khangkan-logo.webp" alt="Khangkan-Logo" class="h-15 w-auto dark:brightness-110" draggable="false">
         </div>
 
-        <h3 class="text-xs font-semibold text-gray-400 mb-4 pl-4 tracking-wide">
+        <h3 class="text-xs font-semibold text-muted-foreground mb-4 pl-4 tracking-wide uppercase">
             เมนูหลัก
         </h3>
 
@@ -62,64 +62,71 @@ const menuItems = [
             <RouterLink v-for="item in menuItems" :key="item.id" :to="item.id === 'home' ? '/' : `/${item.id}`" :class="cn(
                 'flex items-center px-4 py-3.5 rounded-2xl text-sm font-medium transition-all border-transparent duration-200 outline-none',
                 activeMenu === item.id
-                    ? 'bg-white text-[#009b77] shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-gray-50'
-                    : 'text-gray-500 hover:bg-gray-100/50 hover:text-gray-700'
+                    ? 'bg-primary/10 text-primary shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-primary/20'
+                    : 'text-muted-foreground hover:bg-accent hover:text-foreground'
         )">
                 <span class="mr-4 flex items-center justify-center w-6 h-6" v-html="item.icon"></span>
                 {{ item.label }}
             </RouterLink>
         </nav>
 
-        <div class="mt-auto pt-6">
-            <div class="border-t border-gray-100 pb-6"></div>
-            <div
-                class="bg-white rounded-2xl p-3 flex items-center shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-gray-50 cursor-pointer hover:bg-gray-50 transition-colors">
-                <div class="w-10 h-10 bg-[#f4f4f5] rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                </div>
-                <div class="overflow-hidden">
-                    <p class="text-sm font-bold text-gray-800 truncate">ผู้ใช้งาน</p>
-                    <p class="text-[11px] font-medium text-[#009b77] truncate">โหมดไม่ระบุตัวตน</p>
+        <div class="mt-auto pt-4"> <div class="border-t border-border pb-4"></div>
+            <div class="flex flex-col gap-3">
+                
+                <ThemeToggle :fullWidth="true" />
+
+                <div
+                    class="bg-card rounded-2xl p-3 flex items-center shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-border cursor-pointer hover:bg-accent transition-colors">
+                    <div class="w-10 h-10 bg-muted rounded-full flex items-center justify-center mr-3 shrink-0">
+                        <svg class="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="overflow-hidden">
+                        <p class="text-sm font-bold text-foreground truncate">ผู้ใช้งาน</p>
+                        <p class="text-[11px] font-medium text-primary truncate">โหมดไม่ระบุตัวตน</p>
+                    </div>
                 </div>
             </div>
         </div>
     </aside>
 
     <header
-        class="md:hidden fixed top-0 left-0 right-0 h-16 bg-white flex items-center justify-between px-5 z-40 border-b border-gray-100">
+        class="md:hidden fixed top-0 left-0 right-0 h-16 bg-card flex items-center justify-between px-5 z-40 border-b border-border transition-colors duration-300">
 
         <div class="flex items-center">
-            <img src="../../assets/shared/khangkan-logo.webp" alt="Khangkan-Logo" class="h-10 w-auto">
+            <img src="../../assets/shared/khangkan-logo.webp" alt="Khangkan-Logo" class="h-10 w-auto dark:brightness-110">
         </div>
 
-        <div
-            class="w-10 h-10 border border-gray-200 rounded-full flex items-center justify-center text-gray-500 cursor-pointer">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-            </svg>
+        <div class="flex items-center gap-3">
+            <ThemeToggle />
+            
+            <div
+                class="w-10 h-10 border border-border rounded-full flex items-center justify-center text-muted-foreground cursor-pointer bg-card">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+            </div>
         </div>
     </header>
 
     <nav
-        class="md:hidden fixed bottom-0 left-0 right-0 h-18 bg-white border-t border-gray-100 flex justify-around items-center px-2 z-40 pb-safe">
+        class="md:hidden fixed bottom-0 left-0 right-0 h-18 bg-card border-t border-border flex justify-around items-center px-2 z-40 pb-safe transition-colors duration-300">
         <RouterLink v-for="item in menuItems" :key="item.id" :to="item.id === 'home' ? '/' : `/${item.id}`" :class="[
             'flex flex-col items-center justify-center w-full h-full relative transition-colors duration-200 focus:outline-none',
-            activeMenu === item.id ? 'text-[#009b77]' : 'text-[#79716B]'
+            activeMenu === item.id ? 'text-primary' : 'text-muted-foreground'
         ]">
-            <div v-if="activeMenu === item.id" class="absolute top-0 w-8 h-0.75 bg-[#009b77] rounded-b-md"></div>
+            <div v-if="activeMenu === item.id" class="absolute top-0 w-8 h-0.75 bg-primary rounded-b-md"></div>
 
             <span class="mb-1 flex items-center justify-center w-6 h-6 mt-1" v-html="item.icon"></span>
 
             <span class="text-[10px] font-medium">{{ item.mobileLabel }}</span>
         </RouterLink>
     </nav>
-
 </template>
 
 <style scoped>

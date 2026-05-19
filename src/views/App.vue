@@ -1,9 +1,17 @@
 <script setup>
 import Sidebar from '@/components/shared/Sidebar.vue'
+import { useThemeStore } from '@/stores/theme'
+import { onMounted } from 'vue'
+
+const themeStore = useThemeStore()
+
+onMounted(() => {
+  themeStore.initTheme()
+})
 </script>
 
 <template>
-  <div class="flex h-screen bg-gray-50 overflow-hidden relative">
+  <div class="flex h-screen bg-background overflow-hidden relative transition-colors duration-300">
     
     <Sidebar />
 

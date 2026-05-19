@@ -35,23 +35,23 @@ const submitForm = () => {
 
     <Sidebar current-menu="consult" />
 
-    <div class="py-8 px-5 max-w-4xl mx-auto pb-24 md:pb-8">
+    <div class="py-8 px-5 max-w-4xl mx-auto pb-24 md:pb-8 transition-colors duration-300">
 
-        <div class="flex items-center space-x-2 text-[#A6A09B] mb-6">
+        <div class="flex items-center space-x-2 text-muted-foreground mb-6">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path
                         d="M5.925 15C7.35643 15.7343 9.00306 15.9332 10.5682 15.5609C12.1333 15.1885 13.5139 14.2694 14.4613 12.9692C15.4087 11.6689 15.8606 10.0731 15.7354 8.46916C15.6103 6.86524 14.9164 5.35876 13.7789 4.22118C12.6413 3.0836 11.1348 2.38972 9.53088 2.2646C7.92697 2.13947 6.3311 2.59132 5.03086 3.53872C3.73063 4.48612 2.81152 5.86677 2.43917 7.43187C2.06682 8.99697 2.26571 10.6436 3 12.075L1.5 16.5L5.925 15Z"
-                        stroke="#A6A09B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </span>
             <p class="font-bold text-[15px]">ปรึกษาผู้เชี่ยวชาญ</p>
         </div>
 
-        <div class="relative w-full h-48 md:h-56 bg-slate-800 rounded-3xl overflow-hidden mb-8 shadow-sm">
+        <div class="relative w-full h-48 md:h-56 bg-zinc-900 rounded-3xl overflow-hidden mb-8 shadow-sm">
             <img src="@/assets/consult/consult-an-expert.png" alt="Consult Banner"
-                class="absolute inset-0 w-full h-full object-cover opacity-60" draggable="false" />
-            <div class="absolute inset-0 bg-linear-to-r from-black/20 to-transparent"></div>
+                class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-40" draggable="false" />
+            <div class="absolute inset-0 bg-linear-to-r from-black/40 to-transparent"></div>
 
             <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-center text-white">
                 <div
@@ -68,16 +68,16 @@ const submitForm = () => {
             </div>
         </div>
 
-        <div class="bg-white border border-gray-100 rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8">
+        <div class="bg-card border border-border rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 transition-colors duration-300">
 
             <div class="mb-6">
-                <h3 class="text-[15px] font-bold text-gray-800 mb-4">เรื่องที่อยากปรึกษาคือเรื่องอะไร?</h3>
+                <h3 class="text-[15px] font-bold text-foreground mb-4">เรื่องที่อยากปรึกษาคือเรื่องอะไร?</h3>
                 <div class="flex flex-wrap gap-2.5">
                     <button v-for="topic in topics" :key="topic" @click="selectedTopic = topic" :class="[
                         'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border',
                         selectedTopic === topic
-                            ? 'border-[#009b77] bg-[#009b77]/10 text-[#009b77]'
-                            : 'border-gray-200 text-gray-600 bg-white hover:border-gray-300'
+                            ? 'border-primary bg-primary/10 text-primary'
+                            : 'border-border text-muted-foreground bg-card hover:bg-accent hover:text-foreground'
                     ]">
                         {{ topic }}
                     </button>
@@ -85,17 +85,17 @@ const submitForm = () => {
             </div>
 
             <div class="mb-6">
-                <h3 class="text-[15px] font-bold text-gray-800 mb-3">เล่าให้เราฟังหน่อย (ไม่ระบุตัวตน):</h3>
+                <h3 class="text-[15px] font-bold text-foreground mb-3">เล่าให้เราฟังหน่อย (ไม่ระบุตัวตน):</h3>
                 <textarea v-model="message" rows="5"
-                    class="w-full border border-gray-200 rounded-2xl p-4 text-sm text-gray-700 bg-[#fbfbfb] focus:bg-white focus:outline-none focus:border-[#009b77] focus:ring-1 focus:ring-[#009b77] transition-all resize-none placeholder-gray-400"
+                    class="w-full border border-border rounded-2xl p-4 text-sm text-foreground bg-muted/50 focus:bg-card focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none placeholder-muted-foreground/60"
                     placeholder="พิมพ์เรื่องที่รบกวนจิตใจคุณที่นี่... ทุกอย่างจะถูกเก็บเป็นความลับ"></textarea>
             </div>
 
             <button @click="submitForm" :disabled="!isFormValid" :class="[
                 'w-full py-3.5 rounded-2xl flex items-center justify-center gap-2 text-sm font-bold transition-all',
                 isFormValid
-                    ? 'bg-[#009b77] text-white shadow-md hover:bg-[#008264]'
-                    : 'bg-[#f0f0f0] text-gray-400 cursor-not-allowed'
+                    ? 'bg-primary text-white shadow-md hover:bg-primary/90'
+                    : 'bg-muted text-muted-foreground/40 cursor-not-allowed'
             ]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 18 18" fill="none">
                     <g clip-path="url(#clip0_89_1114)">
@@ -116,9 +116,9 @@ const submitForm = () => {
 
         </div>
 
-        <div class="bg-[#F0F9FF] border border-[#DFF2FE] rounded-3xl p-6 text-center">
+        <div class="bg-blue-500/10 border border-blue-500/20 rounded-3xl p-6 text-center transition-colors duration-300">
             <div
-                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm text-[#00598A]">
+                class="w-12 h-12 bg-card rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm text-blue-600 dark:text-blue-400">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -126,14 +126,14 @@ const submitForm = () => {
                     </path>
                 </svg>
             </div>
-            <h3 class="text-base font-bold text-[#00598A] mb-1">คุณไม่ได้อยู่ตัวคนเดียวนะ ต้องการความช่วยเหลือหรือเปล่า?
+            <h3 class="text-base font-bold text-foreground mb-1">คุณไม่ได้อยู่ตัวคนเดียวนะ ต้องการความช่วยเหลือหรือเปล่า?
             </h3>
-            <p class="text-xs md:text-sm text-[#00598A] mb-5">
+            <p class="text-xs md:text-sm text-muted-foreground mb-5">
                 หากคุณกำลังมีความคิดทำร้ายตัวเอง หรือต้องการคนคุยด้วยเดี๋ยวนี้ โทร 1323 (ฟรี 24 ชม.)
             </p>
 
             <a href="tel:1323"
-                class="inline-flex items-center justify-center gap-2 bg-[#0084D1] hover:bg-[#00598A] text-white px-8 py-3 rounded-full text-sm font-bold transition-colors shadow-md">
+                class="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-sm font-bold transition-colors shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path
                         d="M14.6667 11.28V13.28C14.6675 13.4657 14.6294 13.6494 14.555 13.8195C14.4807 13.9897 14.3716 14.1424 14.2348 14.2679C14.0979 14.3934 13.9364 14.489 13.7605 14.5485C13.5847 14.6079 13.3983 14.63 13.2134 14.6133C11.1619 14.3904 9.19137 13.6894 7.46004 12.5667C5.84926 11.5431 4.48359 10.1774 3.46004 8.56665C2.33336 6.82745 1.6322 4.84731 1.41337 2.78665C1.39671 2.60229 1.41862 2.41649 1.4777 2.24107C1.53679 2.06564 1.63175 1.90444 1.75655 1.76773C1.88134 1.63102 2.03324 1.52179 2.20256 1.447C2.37189 1.37221 2.55493 1.33349 2.74004 1.33332H4.74004C5.06357 1.33013 5.37723 1.4447 5.62254 1.65567C5.86786 1.86664 6.02809 2.15961 6.07337 2.47998C6.15779 3.12003 6.31434 3.74847 6.54004 4.35332C6.62973 4.59193 6.64915 4.85126 6.59597 5.10057C6.5428 5.34988 6.41928 5.57872 6.24004 5.75998L5.39337 6.60665C6.34241 8.27568 7.72434 9.65761 9.39337 10.6067L10.24 9.75998C10.4213 9.58074 10.6501 9.45722 10.8994 9.40405C11.1488 9.35088 11.4081 9.37029 11.6467 9.45998C12.2516 9.68568 12.88 9.84224 13.52 9.92665C13.8439 9.97234 14.1396 10.1355 14.3511 10.385C14.5625 10.6345 14.6748 10.953 14.6667 11.28Z"
